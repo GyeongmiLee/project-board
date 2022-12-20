@@ -10,9 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * 할일 : Lombok 사용하기
@@ -41,7 +39,7 @@ import java.util.Set;
 @Entity /* 1) lombok을 이용해서 클래스를 엔티티로 변경. @Entity가 붙은 클래스는 JPA가 관리하게 된다.
             그래서 기본키(PK)가 뭔지 알려줘야 한다. 그게 @Id이다.*/
 @Getter/* 2) getter/ setter, toString 등의 롬복 어노테이션 사용*/
-public class Article {
+public class Ex01_1_Article_엔티티로변경 {
     @Id //전체 필드 중에서 어떤 필드가 pk인지!(이게 pk야!), @id 없으면 @entity 에러난다.
     @GeneratedValue(strategy = GenerationType.IDENTITY) //해당 필드가 auto_increment인 경우 @GeneratedValue 써서
     //자동으로 값이 생성되게 해줘야한다. (= 기본키 전략)
@@ -67,33 +65,13 @@ public class Article {
     private String hashtag; // 해시태그
 
 
-    /** 양방향 바인딩
-     *
-     *
-     * */
-    @OrderBy("id") //양방향 바인딩을 할건데 정렬 기준을 id로 하겠다는 뜻
-    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-    @ToString.Exclude/** 이거 중요. 맨 위에 @ToString이 있는데 마우스 올려보면 '@ToString includes~lazy load' 어쩌고 나온다.
-     이건 퍼포먼스, 메모리 저하를 일으킬 수 있어서 성능적으로 안좋은 영향을 줄 수 있음. 그래서 해당 필드를 가려주세요~ 하는것*/
-    private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
-    /* 이건 더 중요: @ToString.Exclude 이걸 안해주면 순환참조 이슈가 생길 수 있다.
-    *  여기서 ToString이 id, title, content, hashtag 다 찍고 set<ArticleComment> 부분을 찍으려고
-    *  ArticleComment.java 파일에 가서 거기있는 @ToString이 원소들 다 찍으려고 하면서 원소들 중에
-    *  private Article article; 보는 순간 다시 Article의 @ToString이 동작하면서 또 모든 원소들을
-    *  찍으려고 하고, 그러다가 다시 Set<ArticleComment>를 보고 또 ArticleComment 로가서 toString 돌리고...
-    *  이런식으로 동작하면서 메모리가 터질 수 있다. 그래서 Set<ArticleComment>에 @ToString.Exclude을 달아준다.
-    *
-    *  ArticleComment에 걸지 않고 Article에 걸어주는 이유는 댓글이 글을 참조하는 건 정상적인 경우인데,
-    *  반대로 글이 댓글을 참조하는건 일반적인 경우는 아니기 때문에 Article에 exclude를 걸어준다.
-    *
-    *
-    * */
+    /** 양방향 바인딩 */
 
     /* jpa auditing: jpa에서 자동으로 세팅하게 해줄 때 사용하는 기능
                     이거하려면 config 파일이 별도로 있어야 한다.
                     config 패키지 만들어서 JpaConfig 클래스 만들자
-    * 
-    * 
+    *
+    *
     * */
     //메타데이터
     @CreatedDate // 이렇게 하면~ config와 연결
@@ -129,10 +107,10 @@ public class Article {
     /**Entity를 만들때는 무조건 기본 생성자가 필요하다.
      * public 또는 protected만 가능한데, 평생 아무데서도 기본생성자를 안쓰이게 하고 싶어서 protected로 변경함
      * **/
-    protected Article() {
+    protected Ex01_1_Article_엔티티로변경() {
     }
     /* 사용자가 입력하는 값만 받기, 나머지는 시스템이 알아서 하게 해주면 됨.*/
-    private Article(String content, String title, String hashtag) {
+    private Ex01_1_Article_엔티티로변경(String content, String title, String hashtag) {
         this.content = content;
         this.title = title;
         this.hashtag = hashtag;
@@ -148,8 +126,8 @@ public class Article {
     *       2) return을 가지고 있기 때문에 상속시 값을 확인할 수 있다.
     *      *3) (중요) 객체 생성을 '캡슐화' 할 수 있다.
     * ~*/
-    public static Article of(String title, String content, String hashtag){
-        return new Article(title, content, hashtag);
+    public static Ex01_1_Article_엔티티로변경 of(String title, String content, String hashtag){
+        return new Ex01_1_Article_엔티티로변경(title, content, hashtag);
     }
 
     /*
@@ -165,7 +143,7 @@ public class Article {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Article article = (Article) o;
+        Ex01_1_Article_엔티티로변경 article = (Ex01_1_Article_엔티티로변경) o;
         return id.equals(article.id); //기본
 //        return id != null && id.equals(article.id);
     }
