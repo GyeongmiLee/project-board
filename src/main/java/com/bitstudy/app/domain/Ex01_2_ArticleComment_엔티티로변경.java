@@ -9,7 +9,6 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity/* 테이블과의 매핑 한다는 뜻,
@@ -22,7 +21,7 @@ import java.time.LocalDateTime;
         @Index(columnList="createdAt"),
         @Index(columnList="createdBy")
 })
-public class ArticleComment {
+public class Ex01_2_ArticleComment_엔티티로변경 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
