@@ -29,6 +29,11 @@ package com.bitstudy.app.domain;
  * 2) @MapperSupperClass - (요즘 실무에서 사용)
  *                  @MapperSupperClass 어노테이션이 붙은 곳에서 사용
  *
+ *  * 둘의 차이 : 사실은 둘이 비슷하지만 @Embedded 방식을 하게 되면 필드가 하나 추가되고, 영속성 컨텍스트를 통해서
+ *  데이터를 넘겨받아서 어플리케이션으로 열었을때에는 어차피 AuditingField랑 똑같이 보인다.
+ *  (중간에 한단계가 더 있다는 뜻)
+ *          
+ *          @MapperSupperClass는 표준 JPA에서 제공해주는 클래스. 중간단계 따로 없이 바로 동작
  *
  *
  *
@@ -63,11 +68,13 @@ name 부분을 생략하면 원래 이름 사용.
         @Index(columnList = "createdAt"),
         @Index(columnList = "createdBy")
 })
-@EntityListeners(AuditingEntityListener.class)/* 이거 없으면 테스트 할때 createAt 때문에 에러남*/
+//@EntityListeners(AuditingEntityListener.class)/* 이거 없으면 테스트 할때 createAt 때문에 에러남*/
 @Entity // Lombok 을 이용해서 클래스를 엔티티로 변경 @Entity 가 붙은 클래스는 JPA 가 관리하게 된다.
 @Getter // 모든 필드의 getter 들이 생성
 @ToString // 모든 필드의 toString 생성
-public class Article {
+public class Article extends AuditingFields{
+    
+    /*extends 한 이유 : 인터페이스는 선언문만있어서 사용하기에 부적합*/
 
     @Id // 전체 필드중에서 PK 표시 해주는 것 @Id 가 없으면 @Entity 어노테이션을 사용 못함
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 해당 필드가 auto_increment 인 경우 @GeneratedValue 를 써서 자동으로 값이 생성되게 해줘야 한다. (기본키 전략)
@@ -102,6 +109,8 @@ public class Article {
     @ToString.Exclude
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
+
+    /* 1) Embeded방식 - 예시는 강사님거 붙여넣자!*/
 //    //메타데이터
 //    @CreatedDate
 //    @Column(nullable = false)

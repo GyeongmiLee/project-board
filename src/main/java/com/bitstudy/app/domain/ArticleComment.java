@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @ToString
-public class ArticleComment {
+public class ArticleComment extends AuditingFields{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id; // 게시글 고유 아이디
