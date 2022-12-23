@@ -2,6 +2,8 @@ package com.bitstudy.app.repository;
 
 import com.bitstudy.app.domain.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.stereotype.Repository;
 
 /** TDD를 위해서 임시로 만들어놓은 저장소 (이거로 DB에 접근할거다)
  *
@@ -10,5 +12,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * 2) JUint5 버전인지 확인
  * 3) 이름 ArticleRepositoryTest 를 JpaRepositoryTest 로 변경
  * */
+
+/** 할일 - class 레벨에 @RepositoryRestResource 넣어서 해당 클래스를 spring rest data 사용할 준비 시켜놓기
+ *
+*
+* */
+@RepositoryRestResource
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 }
