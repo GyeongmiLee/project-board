@@ -11,6 +11,28 @@ package com.bitstudy.app.domain;
  *  3) 동등성, 동일성 비교 할 수 있는 코드 넣어볼 예정
  * */
 
+
+/** Article과 ArticleComment에 있는 공통필드(메타데이터, id는 제외)들을 별도로 빼서 관리할것임.
+ *  이유는 앞으로 Article과 ArticleComment 처럼 fk 같은거로 엮여있는 테이블들 만들경우,
+ *  모든  domain 안에있는 파일들에 많은 중복코드들이 들어가게 된다.
+ *  즉, {별도의 파일에 공통되는 것들을 다 몰아넣고 사용하는거 해볼것!}
+ *
+ *  참고: 공통필드를 뺴는건 팀마다 다르다.
+ *       중복코드를 싫어해서 그냥 각 파일마다 다 두는 사람들이 있고,
+ *       (장: 유지보수 , 단: 난이도 상승)
+ *       중복코드를 괜찮아해서 각 파일에 그냥 두는 사람도 있음~
+ *       (각 파일에 모든 정보 들어있어서, 변경시 유연하게 코드 작업 가능~)
+ *
+ *추출은 두가지 방법으로 할 수 있다.
+ * 1) @Embedded - 공통되는 필드들을 하나의 클래스로 만들어서 @Embedded 있는 곳에서 치환 하는 방식
+ *
+ * 2) @MapperSupperClass - (요즘 실무에서 사용)
+ *                  @MapperSupperClass 어노테이션이 붙은 곳에서 사용
+ *
+ *
+ *
+ *
+ * */
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -80,22 +102,22 @@ public class Article {
     @ToString.Exclude
     private final Set<ArticleComment> articleComments = new LinkedHashSet<>();
 
-    //메타데이터
-    @CreatedDate
-    @Column(nullable = false)
-    private LocalDateTime createdAt; // 생성일자
-
-    @CreatedBy
-    @Column(nullable = false,length = 100)
-    private String createdBy; // 생성자
-
-    @LastModifiedDate
-    @Column(nullable = false)
-    private LocalDateTime modifiedAt; // 수정일자
-
-    @LastModifiedBy
-    @Column(nullable = false,length = 100)
-    private String modifiedBy; // 수정자
+//    //메타데이터
+//    @CreatedDate
+//    @Column(nullable = false)
+//    private LocalDateTime createdAt; // 생성일자
+//
+//    @CreatedBy
+//    @Column(nullable = false,length = 100)
+//    private String createdBy; // 생성자
+//
+//    @LastModifiedDate
+//    @Column(nullable = false)
+//    private LocalDateTime modifiedAt; // 수정일자
+//
+//    @LastModifiedBy
+//    @Column(nullable = false,length = 100)
+//    private String modifiedBy; // 수정자
     protected Article() {}
 
     private Article(String title, String content, String hashtag) {
