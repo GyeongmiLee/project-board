@@ -1,13 +1,34 @@
 package com.bitstudy.app.domain;
 
+import lombok.Getter;
+import lombok.ToString;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.Column;
+import javax.persistence.EntityListeners;
+import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
+/** 할 일 : Article.java와 ArticleComment.java의 중복필드를 합치자!
+ * 1) Article에 있는 메타데이터들(auditing에 관련된 필드들) 가져오기
+ * 2) 클래스레벨에 @MappedSuperClass 달아주기
+ * 3) auditing과 관련된것들 다 가져오기
+ *      ex) Article에서는 @EntityListener(AuditingEntityListener.class)
+ * 4)
+ *
+ *
+ * 파싱(parsing) : 일정한 문법을 토대로 나열된 데이터를 그 문법에 맞춰서 분석해서 새롭게 구성하는것
+ *  ex. datetime포맷?
+ *
+ * **/
+@Getter //SETTER 필요없음
+@ToString
+@EntityListeners(AuditingEntityListener.class)/* 이거 없으면 테스트 할때 createAt 때문에 에러남*/
+@MappedSuperclass
 public class AuditingFields {
     //메타데이터
     @CreatedDate
