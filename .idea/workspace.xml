@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="acf8dd83-d5ef-4453-a938-e02c4896fb41" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/config/JpaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/config/JpaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/domain/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/domain/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/domain/ArticleComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/domain/ArticleComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/domain/Ex00_1_Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/domain/Ex00_1_Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/domain/Ex00_2_ArticleComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/domain/Ex00_2_ArticleComment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/domain/Ex01_1_Article_엔티티로변경.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/bitstudy/app/domain/Ex01_2_ArticleComment_엔티티로변경.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,30 +79,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/Users/qhsxn/IdeaProjects/arton",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editing.templates",
-    "spring.configuration.checksum": "6fd232251ba9e66f5bc7137b177b960b"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/qhsxn/IdeaProjects/arton&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;6fd232251ba9e66f5bc7137b177b960b&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -130,7 +123,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.Ex04_JpaRepositoryTest.deleteTest">
+  <component name="RunManager" selected="JUnit.Ex04_JpaRepositoryTest">
     <configuration name="Ex04_JpaRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="app.test" />
       <extension name="coverage">
@@ -221,9 +214,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Ex04_JpaRepositoryTest" />
         <item itemvalue="JUnit.Ex04_JpaRepositoryTest.deleteTest" />
         <item itemvalue="JUnit.Ex04_JpaRepositoryTest.updateTest" />
-        <item itemvalue="JUnit.Ex04_JpaRepositoryTest" />
         <item itemvalue="JUnit.Ex04_JpaRepositoryTest.selectTest" />
         <item itemvalue="JUnit.Ex04_JpaRepositoryTest.insertTest" />
       </list>
@@ -254,7 +247,8 @@
       <workItem from="1671622736739" duration="2210000" />
       <workItem from="1671624973075" duration="734000" />
       <workItem from="1671625728984" duration="3151000" />
-      <workItem from="1671670751161" duration="17895000" />
+      <workItem from="1671670751161" duration="18495000" />
+      <workItem from="1671778110076" duration="878000" />
     </task>
     <servers />
   </component>
